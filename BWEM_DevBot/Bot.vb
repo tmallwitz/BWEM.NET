@@ -25,8 +25,10 @@ Class Bot
           Select Case gameEvent.Type
             Case EventType.MatchStart
               _map.Initialize()
+              Dim drawer as new MapDrawerBMP(_map)
+              drawer.Draw(new MapDrawerParams() With {.Sea = true,.Lake=true, .Buildable = True, .Walkable = true})
             Case EventType.MatchFrame
-              draw()
+              'draw()
           End Select
         Next
 

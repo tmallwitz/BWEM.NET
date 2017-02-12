@@ -103,6 +103,7 @@
     <Compile Include="BWEM\DrawHelper.vb" />
     <Compile Include="BWEM\Extensions.vb" />
     <Compile Include="BWEM\Map.vb" />
+    <Compile Include="BWEM\MapDrawerBMP.vb" />
     <Compile Include="BWEM\Markable.vb" />
     <Compile Include="BWEM\MiniTile.vb" />
     <Compile Include="BWEM\Neutral.vb" />
@@ -156,6 +157,9 @@
     <None Include="start.bat">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Broodwar.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

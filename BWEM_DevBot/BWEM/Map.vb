@@ -92,7 +92,9 @@ Namespace BWEM
       Dim _
         toSearchDelta As _
           New List(Of WalkPosition) _
-          From {New WalkPosition(1, 0), New WalkPosition(0, 1), New WalkPosition(-1, 0), New WalkPosition(0, -1)}
+          From {New WalkPosition(0, -1), New WalkPosition(-1, 0), New WalkPosition(1, 0), New WalkPosition(0, 1)}
+
+
       For y = 0 To WalkSize.Y - 1
         For x = 0 To WalkSize.X - 1
           Dim origin = New WalkPosition(x, y)
@@ -107,7 +109,7 @@ Namespace BWEM
             toSearch.Enqueue(origin)
             seaExtent.Add(originTile)
             originTile.SetSea()
-            While Not toSearch.Any()
+            While toSearch.Any()
               Dim current As WalkPosition = toSearch.Dequeue()
               If (current.X < topLeftX) Then topLeftX = current.X
               If (current.Y < topLeftY) Then topLeftY = current.Y
@@ -124,8 +126,6 @@ Namespace BWEM
                   End If
                 End If
               Next
-
-
             End While
             If seaExtent.Count <= LakeMaxMiniTiles _
                AndAlso bottomRightX - topLeftX <= LakeMaxWidthInMiniTiles _
